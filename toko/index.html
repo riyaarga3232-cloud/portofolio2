@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Electron App</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" type="text/css"
+    href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css" />
+  <link rel="stylesheet" type="text/css"
+    href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css" />
+</head>
+
+<body>
+  <nav>
+    <div class="">
+      <img src="images/columbina.png" alt="my-avatar">
+    </div>
+    <div id="menu-icon" class="menu-icon">
+      <i class="ph ph-list"></i>
+    </div>
+    <ul id="menu-list">
+      <li><a id="nav-home" href="#">home</a></li>
+      <li><a id="nav-work" href="#">work</a></li>
+      <li><a id="nav-edu" href="#">education</a></li>
+      <li><a id="nav-contact" href="#">contact</a></li>
+      <div id="cart">
+  <h3>Keranjang Belanja</h3>
+  <ul id="cart-items"></ul>
+  <p>Total: <span id="cart-total">Rp 0</span></p>
+  <button onclick="checkout()">Checkout</button>
+</div>
+
+
+    </ul>
+  </nav>
+<div class="slider">
+    <div class="slides">
+      <img src="images/columbina.png" alt="bener 1">
+      <img src="images/ojojo.png" alt="benner 2">
+      <img src="images/pp.png" alt="banner 3">
+    </div>
+  </div>
+
+
+  <!-- Container untuk semua produk -->
+  <div id="container" class="container">
+
+    <!-- Produk 1 -->
+    <div class="card">
+      <img src="/images/gi.png" alt="Produk 1">
+      <div class="card-body">
+        <h3 id="p1-title">[ Server Asia ] Akun Starter banyak car bintang 5</h3>
+        <p id="p1-desc"></p>
+        <div class="price">Rp 75.000</div>
+        <a href="halaman2.html" id="p1-btn" class="btn">Tambahkan ke Keranjang</a>
+        
+        
+      </div>
+    </div>
+
+    <!-- Produk 2 -->
+    <div class="card">
+      <img src="/images/gi.png" alt="Produk 2">
+      <div class="card-body">
+        <h3 id="p2-title">[ Server Asia ] Akun Starter ( Dengan 2 Karakter Bintang 5 )</h3>
+        <p id="p2-desc"></p>
+        <div class="price">Rp 120.000</div>
+        <a href="#" id="p2-btn" class="btn">Tambahkan ke Keranjang</a>
+      </div>
+    </div>
+
+    <!-- Produk 3 -->
+    <div class="card">
+      <img src="/images/gi.png" alt="Produk 3">
+      <div class="card-body">
+        <h3 id="p3-title">Akun primogem 12000 - asia server dengan car Bintang 5</h3>
+        <p id="p3-desc"></p>
+        <div class="price">Rp 77.000</div>
+        <a href="#" id="p3-btn" class="btn">Tambahkan ke Keranjang</a>
+      </div>
+    </div>
+
+    <!-- Produk 4 -->
+    <div class="card">
+      <img src="/images/gi.png" alt="Produk 4">
+      <div class="card-body">
+        <h3 id="p4-title"></h3>
+        <p id="p4-desc">Akun primogem 12000 - server Asia tanpa karakter bintang 5 limited [BACADESKRIPSI]</p>
+        <div class="price">Rp 100.000</div> 
+        <a href="#" id="p4-btn" class="btn">Tambahkan ke Keranjang</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="/images/gi.png" alt="Produk 4">
+      <div class="card-body">
+        <h3 id="p5-title"></h3>
+        <p id="p5-desc">[80] GG 47B5 10SIGNATURE C1 KAZUHA SIGN,  [BACADESKRIPSI]</p>
+        <div class="price">Rp 1.800.000</div>
+        <a href="#" id="p5-btn" class="btn">Tambahkan ke Keranjang</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="/images/gi.png" alt="Produk 4">
+      <div class="card-body">
+        <h3 id="p6-title"></h3>
+        <p id="p6-desc">[85] GG WELLBUILD TOTAL 54B5 [SKIN AYAKA,GANYU]C2 [BACADESK]</p>
+        <div class="price">Rp 2.200.000</div>
+        <a href="#" id="p6-btn" class="btn">Tambahkan ke Keranjang</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="/images/gi.png" alt="Produk 4">
+      <div class="card-body">
+        <h3 id="p7-title"></h3>
+        <p id="p7-desc">[AR58] AKUN SSR 18B5 Tighnari C1 + 7B5 WEAPONS Diluc,Dehya+ </p>
+        <div class="price">Rp 510.000</div>
+        <a href="#" id="p7-btn" class="btn">Tambahkan ke Keranjang</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="/images/gi.png" alt="Produk 4">
+      <div class="card-body">
+        <h3 id="p8-title"></h3>
+        <p id="p8-desc">[AR55] Mualani C3 SIGN, Kazuha C1 SIGN,Dehya,KAZUHA C1 + WEAPONS</p>
+        <div class="price">Rp Rp520.000</div>
+        <a href="#" id="p8-btn" class="btn">Tambahkan ke Keranjang</a>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <h3 id="footer-title">Download Free Apk</h3>
+      <div class="app-button">
+        <a href="#"><img src="images/playstor.png" alt="Google Play"></a>
+        <a href="#"><img src="images/App_Store.png" alt="appstore"></a>
+      </div>
+
+      <div class="language">
+        <select id="langSelect">
+          <option value="en">English</option>
+          <option value="id">Indonesia</option>
+        </select>
+      </div>
+
+      <ul class="footer-links">
+        <li><a id="f-doc" href="#">official documents</a></li>
+        <li><a id="f-contact" href="#">contact</a></li>
+        <li><a id="f-terms" href="#">Terms of use</a></li>
+        <li><a id="f-privacy" href="#">Privacy policy</a></li>
+
+
+      </ul>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+
+</html>

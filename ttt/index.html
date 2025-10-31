@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Manajemen Organisasi</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🏢 Sistem Manajemen Organisasi</h1>
+            <p class="subtitle">Kelola anggota, divisi, dan kegiatan organisasi Anda</p>
+        </header>
+
+        <nav class="tabs">
+            <button class="tab-btn active" data-tab="anggota">Anggota</button>
+            <button class="tab-btn" data-tab="divisi">Divisi</button>
+            <button class="tab-btn" data-tab="kegiatan">Kegiatan</button>
+            <button class="tab-btn" data-tab="dashboard">Dashboard</button>
+        </nav>
+
+        <!-- Tab Anggota -->
+        <div class="tab-content active" id="anggota">
+            <div class="section-header">
+                <h2>Manajemen Anggota</h2>
+                <button class="btn-primary" onclick="showAddMemberForm()">+ Tambah Anggota</button>
+            </div>
+
+            <div id="addMemberForm" class="form-container" style="display: none;">
+                <h3>Tambah Anggota Baru</h3>
+                <form onsubmit="addMember(event)">
+                    <input type="text" id="memberName" placeholder="Nama Lengkap" required>
+                    <input type="email" id="memberEmail" placeholder="Email" required>
+                    <input type="tel" id="memberPhone" placeholder="No. Telepon" required>
+                    <select id="memberDivision" required>
+                        <option value="">Pilih Divisi</option>
+                    </select>
+                    <input type="text" id="memberPosition" placeholder="Jabatan" required>
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary">Simpan</button>
+                        <button type="button" class="btn-secondary" onclick="hideAddMemberForm()">Batal</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="search-box">
+                <input type="text" id="searchMember" placeholder="🔍 Cari anggota..." onkeyup="searchMembers()">
+            </div>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nama</th>
+                            <th>Email</th>
+                            <th>Telepon</th>
+                            <th>Divisi</th>
+                            <th>Jabatan</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody id="membersList"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Tab Divisi -->
+        <div class="tab-content" id="divisi">
+            <div class="section-header">
+                <h2>Manajemen Divisi</h2>
+                <button class="btn-primary" onclick="showAddDivisionForm()">+ Tambah Divisi</button>
+            </div>
+
+            <div id="addDivisionForm" class="form-container" style="display: none;">
+                <h3>Tambah Divisi Baru</h3>
+                <form onsubmit="addDivision(event)">
+                    <input type="text" id="divisionName" placeholder="Nama Divisi" required>
+                    <textarea id="divisionDesc" placeholder="Deskripsi Divisi" rows="3" required></textarea>
+                    <input type="text" id="divisionHead" placeholder="Ketua Divisi" required>
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary">Simpan</button>
+                        <button type="button" class="btn-secondary" onclick="hideAddDivisionForm()">Batal</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="divisions-grid" id="divisionsList"></div>
+        </div>
+
+        <!-- Tab Kegiatan -->
+        <div class="tab-content" id="kegiatan">
+            <div class="section-header">
+                <h2>Manajemen Kegiatan</h2>
+                <button class="btn-primary" onclick="showAddActivityForm()">+ Tambah Kegiatan</button>
+            </div>
+
+            <div id="addActivityForm" class="form-container" style="display: none;">
+                <h3>Tambah Kegiatan Baru</h3>
+                <form onsubmit="addActivity(event)">
+                    <input type="text" id="activityName" placeholder="Nama Kegiatan" required>
+                    <textarea id="activityDesc" placeholder="Deskripsi Kegiatan" rows="3" required></textarea>
+                    <input type="date" id="activityDate" required>
+                    <input type="time" id="activityTime" required>
+                    <input type="text" id="activityLocation" placeholder="Lokasi" required>
+                    <select id="activityDivision" required>
+                        <option value="">Pilih Divisi Penyelenggara</option>
+                    </select>
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary">Simpan</button>
+                        <button type="button" class="btn-secondary" onclick="hideAddActivityForm()">Batal</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="activities-grid" id="activitiesList"></div>
+        </div>
+
+        <!-- Tab Dashboard -->
+        <div class="tab-content" id="dashboard">
+            <h2>Dashboard Organisasi</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">👥</div>
+                    <div class="stat-number" id="totalMembers">0</div>
+                    <div class="stat-label">Total Anggota</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🏛️</div>
+                    <div class="stat-number" id="totalDivisions">0</div>
+                    <div class="stat-label">Total Divisi</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">📅</div>
+                    <div class="stat-number" id="totalActivities">0</div>
+                    <div class="stat-label">Total Kegiatan</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">⏰</div>
+                    <div class="stat-number" id="upcomingActivities">0</div>
+                    <div class="stat-label">Kegiatan Mendatang</div>
+                </div>
+            </div>
+
+            <div class="dashboard-section">
+                <h3>Kegiatan Mendatang</h3>
+                <div id="upcomingActivitiesList"></div>
+            </div>
+
+            <div class="dashboard-section">
+                <h3>Anggota per Divisi</h3>
+                <div id="membersByDivision"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

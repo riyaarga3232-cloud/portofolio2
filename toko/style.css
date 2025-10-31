@@ -1,0 +1,333 @@
+*, html {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box; /* ✅ perbaikan */
+}
+
+body {
+    background-color: rgb(255, 255, 255);
+    margin: 0%;
+    padding: 0%;
+    font-family: Arial, Helvetica, sans-serif;
+
+    background-image:url("images/ojojo.png") ;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+nav {
+    background-color: rgba(92, 159, 216, 0.548);
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+   
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    list-style: none;
+}
+
+nav ul li:last-of-type {
+    padding-bottom: 8px;
+}
+
+nav div img {
+    width: 50px; 
+}
+
+nav ul li a {
+    text-decoration: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: black;
+    font-weight: 600;
+    padding: 8px 0;
+    transition: all 300ms ease-in-out; 
+    border-bottom: 1px solid rgba(255, 68, 0, 0);
+}
+
+nav ul li a:hover {
+    color: orangered;
+    border-bottom: 1px solid orangered;
+}
+
+.menu-icon {
+    background-color: rgba(255, 99, 71, 0);
+    font-size: 28px;
+    display: none;
+}
+
+main {
+    padding-top: 7rem;
+}
+
+/* Desktop default */
+#menu-list {
+  display: flex;
+}
+
+/* Layar kecil */
+@media only screen and (max-width:768px) {
+    nav {
+        flex-wrap: wrap;
+        position: fixed;
+        width: 100%;
+        top: 0;
+    }
+
+    #menu-list {
+        display: none; /* default: sembunyi */
+    }
+
+    #menu-list.show {
+        display: flex; 
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .menu-icon {
+        display: flex;
+        align-items: center;
+    }
+}
+
+h1 {
+    text-align: center;
+}
+
+.container {
+   display: flex;
+    align-items: center;
+    gap: 20px;
+    list-style: none;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.produk-container {
+  display: grid;
+  flex-wrap: wrap; /* Biar produk baru turun ke bawah */
+  gap: 20px;       /* Jarak antar produk */
+  padding: 24px;
+  grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
+}
+
+.produk {
+  width: 200px;    /* Atur lebar produk */
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap; /* produk baru otomatis turun ke bawah */
+  gap: 20px;
+  justify-content: center;
+  margin: 20px;
+}
+
+.card {
+  width: 220px;
+  border: 1px solid #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  background: #fff;
+  text-align: center;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  margin: 0 auto 10px;
+  display: block;
+}
+
+.card-body {
+  padding: 10px;
+}
+
+.price {
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.btn {
+  display: inline-block;
+  padding: 8px 12px;
+  background: #2c7be5;
+  color: #fff;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #1a5bb8;
+}
+
+.app-button img{
+   width: 100px;
+   margin: 10px;
+   cursor: pointer;
+}
+.footer {
+  background: #48d1f7; /* warna kuning */
+  padding: 40px 20px;
+  text-align: center;
+  margin-top: 50px;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+}
+
+.footer h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #1a1a1a;
+}
+
+
+
+.language select {
+  padding: 8px 12px;
+  margin: 20px 0;
+  border-radius: 5px;
+  border: 1px solid #333;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.footer-links li {
+  margin: 10px 0;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: #1a1a1a;
+  font-weight: bold;
+}
+
+.footer-links a:hover {
+  color: #444;
+}
+
+
+/* wrapper */
+.slider {
+  width: 100%;
+  max-width: 800px;
+  height: 300px;
+  margin: 20px auto;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  position: relative;
+}
+
+/* slides container */
+.slides {
+  display: flex;
+  width: 100%; /* 3 gambar */
+  animation: slide 15s infinite;
+}
+
+/* tiap gambar HARUS full selebar slider */
+.slides img {
+  width: 100%;
+  flex-shrink: 0; /* biar gak mengecil barengan */
+  height: 300px;
+  object-fit: cover;
+  background-color: aliceblue;
+}
+
+@keyframes slide {
+  0%   { transform: translateX(0%); }
+  33%  { transform: translateX(-100%); }
+  66%  { transform: translateX(-200%); }
+  100% { transform: translateX(0%); }
+}
+
+
+.product-card img {
+  width: 120px;       /* atur lebar */
+  height: 120px;      /* atur tinggi */
+  object-fit: contain; /* biar nggak gepeng */
+  display: block;
+  margin: 0 auto 10px; /* tengah + jarak ke bawah */
+}
+
+#menu-list.hidden {
+  display: none;
+}
+#menu-list.show {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.body-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  background: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  
+}
+.register-box {
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  width: 320px;
+  text-align: center;
+}
+.register-box h2 {
+  margin-bottom: 20px;
+}
+.register-box input {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+
+}
+
+.register-box button{
+  width: 100%;
+  padding: 10px;
+  margin-top: 15px;
+  background: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.register-box button:hover{
+  background: #1e7e34;
+}
+.register-box p {
+  margin-top: 15px;
+  font-size: 14px;
+}
+.register-box a{
+  color: #2c7be5;
+  text-decoration: none;
+}
+
